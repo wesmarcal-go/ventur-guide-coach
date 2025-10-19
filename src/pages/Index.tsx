@@ -1,11 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from "react";
+import PillarCard from "@/components/PillarCard";
+import { pillars } from "@/data/pillars";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gradient-hero">
+      <div className="container mx-auto px-4 py-12 md:py-20">
+        <header className="text-center mb-12 md:mb-16 space-y-4 animate-fade-in">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+            Consulta <span className="text-primary">VENTUR</span>
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Protocolo completo de avaliação para seu bem-estar integral
+          </p>
+        </header>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {pillars.map((pillar, index) => (
+            <div 
+              key={pillar.id}
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <PillarCard
+                id={pillar.id}
+                title={pillar.title}
+                description={pillar.description}
+                icon={pillar.icon}
+                color={pillar.color}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
