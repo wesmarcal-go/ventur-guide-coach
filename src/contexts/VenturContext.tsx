@@ -5,7 +5,7 @@ import { pillars } from "@/data/pillars";
 interface VenturContextType {
   answers: Answer[];
   addAnswer: (answer: Answer) => void;
-  getAnswerForQuestion: (questionId: string) => boolean | undefined;
+  getAnswerForQuestion: (questionId: string) => number | undefined;
   getPillarProgress: (pillarId: string) => PillarProgress;
   resetAnswers: () => void;
 }
@@ -27,7 +27,7 @@ export const VenturProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     });
   };
 
-  const getAnswerForQuestion = (questionId: string): boolean | undefined => {
+  const getAnswerForQuestion = (questionId: string): number | undefined => {
     const answer = answers.find((a) => a.questionId === questionId);
     return answer?.value;
   };
@@ -41,8 +41,9 @@ export const VenturProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     const questionIds = pillar.questions.map((q) => q.id);
     const pillarAnswers = answers.filter((a) => questionIds.includes(a.questionId));
     
-    const yesCount = pillarAnswers.filter((a) => a.value === true).length;
-    const noCount = pillarAnswers.filter((a) => a.value === false).length;
+    // Indicador acende quando pontuação ≥ 2
+    const yesCount = pillarAnswers.filter((a) => a.value >= 2).length;
+    const noCount = pillarAnswers.filter((a) => a.value < 2).length;
 
     return {
       pillarId,

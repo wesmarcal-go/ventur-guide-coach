@@ -15,7 +15,7 @@ export interface Pillar {
 
 export interface Answer {
   questionId: string;
-  value: boolean; // true for "sim", false for "não"
+  value: number; // 0 to 3 (0="não", 3="sim", ≥2 acende indicador)
 }
 
 export interface PillarProgress {

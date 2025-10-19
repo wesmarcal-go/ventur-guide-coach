@@ -29,7 +29,7 @@ const PillarQuestions = () => {
   const currentAnswer = getAnswerForQuestion(currentQuestion.id);
   const progressPercentage = ((currentQuestionIndex + 1) / pillar.questions.length) * 100;
 
-  const handleAnswer = (answer: boolean) => {
+  const handleAnswer = (answer: number) => {
     addAnswer({ questionId: currentQuestion.id, value: answer });
     
     // Automatically move to next question after a short delay

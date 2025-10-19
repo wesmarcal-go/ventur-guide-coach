@@ -2,16 +2,22 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, X } from "lucide-react";
 
 interface QuestionCardProps {
   question: string;
   tag: string;
-  onAnswer: (answer: boolean) => void;
-  currentAnswer?: boolean;
+  onAnswer: (answer: number) => void;
+  currentAnswer?: number;
 }
 
 const QuestionCard: React.FC<QuestionCardProps> = ({ question, tag, onAnswer, currentAnswer }) => {
+  const scores = [
+    { value: 0, label: "Não" },
+    { value: 1, label: "Raramente" },
+    { value: 2, label: "Às vezes" },
+    { value: 3, label: "Sim" },
+  ];
+
   return (
     <Card className="w-full max-w-2xl mx-auto shadow-soft animate-scale-in">
       <div className="p-8 md:p-12 space-y-8">
@@ -25,26 +31,29 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ question, tag, onAnswer, cu
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <Button
-            size="lg"
-            variant={currentAnswer === true ? "default" : "outline"}
-            onClick={() => onAnswer(true)}
-            className="h-16 text-lg font-medium transition-all duration-300 hover:shadow-button group"
-          >
-            <Check className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-            Sim
-          </Button>
+        <div className="space-y-3">
+          <div className="grid grid-cols-4 gap-3">
+            {scores.map((score) => (
+              <Button
+                key={score.value}
+                size="lg"
+                variant={currentAnswer === score.value ? "default" : "outline"}
+                onClick={() => onAnswer(score.value)}
+                className="h-20 flex flex-col items-center justify-center gap-2 transition-all duration-300 hover:shadow-button group"
+              >
+                <span className="text-3xl font-bold group-hover:scale-110 transition-transform">
+                  {score.value}
+                </span>
+                <span className="text-xs font-medium opacity-80">
+                  {score.label}
+                </span>
+              </Button>
+            ))}
+          </div>
           
-          <Button
-            size="lg"
-            variant={currentAnswer === false ? "default" : "outline"}
-            onClick={() => onAnswer(false)}
-            className="h-16 text-lg font-medium transition-all duration-300 hover:shadow-button group"
-          >
-            <X className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-            Não
-          </Button>
+          <p className="text-sm text-muted-foreground text-center mt-4">
+            Escala: 0 (Não) até 3 (Sim)
+          </p>
         </div>
       </div>
     </Card>
