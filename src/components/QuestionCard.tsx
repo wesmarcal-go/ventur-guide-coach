@@ -19,7 +19,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ question, tag, onAnswer, cu
   ];
 
   return (
-    <Card className="w-full max-w-2xl mx-auto shadow-soft animate-scale-in">
+    <Card className="w-full max-w-2xl mx-auto shadow-elegant animate-scale-in border border-border/50">
       <div className="p-8 md:p-12 space-y-8">
         <div className="space-y-4">
           <Badge variant="secondary" className="text-sm font-medium">

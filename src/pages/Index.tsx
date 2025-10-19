@@ -4,13 +4,14 @@ import { pillars } from "@/data/pillars";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-hero">
-      <div className="container mx-auto px-4 py-12 md:py-20">
+    <div className="min-h-screen bg-gradient-hero relative">
+      <div className="absolute inset-0 bg-gradient-overlay pointer-events-none"></div>
+      <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
         <header className="text-center mb-12 md:mb-16 space-y-4 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
             Consulta <span className="text-primary">VENTUR</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light">
             Protocolo completo de avaliação para seu bem-estar integral
           </p>
         </header>

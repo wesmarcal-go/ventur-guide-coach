@@ -61,8 +61,9 @@ const PillarQuestions = () => {
   const isComplete = totalAnswered === pillar.questions.length;
 
   return (
-    <div className="min-h-screen bg-gradient-hero">
-      <div className="container mx-auto px-4 py-8 md:py-12">
+    <div className="min-h-screen bg-gradient-hero relative">
+      <div className="absolute inset-0 bg-gradient-overlay pointer-events-none"></div>
+      <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Header */}
           <div className="flex items-center justify-between animate-fade-in">
