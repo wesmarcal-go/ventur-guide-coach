@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200">
+  <title>Ventur</title>
+  <g fill="none" stroke="#0b6866" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+    <circle cx="80" cy="56" r="16" />
+    <path d="M48 124c12-18 24-28 32-44 8 16 20 26 32 44" />
+    <path d="M32 168c18-22 32-36 48-36s30 14 48 36" />
+    <path d="M56 180c8-6 16-10 24-10s16 4 24 10" />
+  </g>
+  <path
+    fill="#0b6866"
+    d="M80 6c18 22 22 44 0 76-22-32-18-54 0-76z"
+  />
+</svg>
